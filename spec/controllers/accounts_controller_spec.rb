@@ -22,7 +22,7 @@ RSpec.describe AccountsController, type: :controller do
           }.to change(Account, :count).by(1)
         end
 
-        it "redirects success page" do
+        it "redirects to success page" do
           post :create, params: {account: valid_attributes}, session: valid_session
           expect(response).to redirect_to(accounts_path)
         end
