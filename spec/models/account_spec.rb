@@ -67,4 +67,20 @@ RSpec.describe Account, type: :model do
     expect(account).to_not be_valid
     expect(account.errors[:ssn].any?).to be_truthy
   end
+  it "is not valid when ssn is less than 9 digits" do 
+    account.ssn = "234-56-789"
+    expect(account).to_not be_valid
+    expect(account.errors[:ssn].any?).to be_truthy
+    account.ssn = "234"
+    expect(account).to_not be_valid
+    expect(account.errors[:ssn].any?).to be_truthy
+  end
+  it "is not valid when ssn in not numeric" do 
+    account.ssn = "234-56-789a"
+    expect(account).to_not be_valid
+    expect(account.errors[:ssn].any?).to be_truthy
+    account.ssn = "234-56-789@"
+    expect(account).to_not be_valid
+    expect(account.errors[:ssn].any?).to be_truthy
+  end
 end
