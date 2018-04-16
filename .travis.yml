@@ -9,6 +9,10 @@ script:
 - RAILS_ENV=test bundle exec rake cucumber
 
 before_script:
+  - wget http://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip
+  - sudo cp chromedriver /usr/local/bin/.
+  - sudo chmod +x /usr/local/bin/chromedriver
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - "bundle exec rails server -p 3000 &"
