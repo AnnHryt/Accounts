@@ -22,7 +22,7 @@ gem 'haml-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails'
   gem 'watir', '~> 6.6'
   gem 'page-object'  

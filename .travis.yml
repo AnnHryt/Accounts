@@ -1,0 +1,14 @@
+sudo: required
+dist: trusty
+language: ruby
+rvm:
+  - 2.3.0
+
+script:
+  - xvfb-run -a bundle exec rspec --color --format documentation
+
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - "bundle exec rails server -p 3000 &"
+- sleep 3 # give xvfb some time to start
