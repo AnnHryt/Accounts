@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
 
  resources :accounts
-  # root 'accounts#new' 
+ root 'accounts#new' 
 end
